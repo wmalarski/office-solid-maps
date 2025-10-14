@@ -1,26 +1,35 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "baseUrl": ".",
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "jsx": "react",
-    "noEmitOnError": true,
-    "outDir": "lib",
-    "sourceMap": true,
-    "target": "es5",
+    "target": "ESNext",
     "lib": [
-      "es2015",
-      "dom"
-    ]
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    /* Linting */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "lib",
-    "lib-amd"
+  "include": [
+    "src"
   ],
-  "ts-node": { 
-    "files": true 
-  }
+  "exclude": [
+    "src/build"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
