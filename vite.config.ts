@@ -1,4 +1,7 @@
+import Sonda from "sonda/vite";
 import { defineConfig } from "vite";
+import solidPlugin from "vite-plugin-solid";
+import tsconfigPaths from "vite-tsconfig-paths";
 import { officeManifest } from "./src/build/office-plugin";
 
 const devCerts = require("office-addin-dev-certs");
@@ -11,6 +14,9 @@ async function getHttpsOptions() {
 // https://vitejs.dev/config/
 export default defineConfig(async ({ mode }) => ({
   plugins: [
+    solidPlugin(),
+    tsconfigPaths(),
+    Sonda({ enabled: true, open: false }),
     officeManifest({
       devUrl: "https://localhost:3000",
       prodUrl: "https://www.contoso.com", // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
