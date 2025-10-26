@@ -1,3 +1,28 @@
+export async function run() {
+  try {
+    await Excel.run(async (context) => {
+      /**
+       * Insert your Excel code here
+       */
+      const range = context.workbook.getSelectedRange();
+
+      // Read the range address
+      range.load("address");
+
+      // Update the fill color
+      range.format.fill.color = "green";
+
+      await context.sync();
+      console.log(`The range address was ${range.address}.`);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export const App = () => {
-    return <span>Hello from solid</span>
+    return <div>
+        <span class="bg-red-500">Hello from solid</span>
+        <button onClick={run}>Click</button>
+    </div>
 }
