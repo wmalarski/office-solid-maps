@@ -1,3 +1,5 @@
+import { createTrailSelection } from "./create-trail-selection";
+
 export async function run() {
   try {
     await Excel.run(async (context) => {
@@ -21,12 +23,14 @@ export async function run() {
 }
 
 export const App = () => {
+  const selectedTrail = createTrailSelection();
+
   return (
     <div>
-      <span class="bg-blue-500">Hello from solid</span>
       <fluent-card class="p-4">
         <fluent-button onClick={run}>Click</fluent-button>
       </fluent-card>
+      <pre>{JSON.stringify(selectedTrail(), null, 2)}</pre>
     </div>
   );
 };

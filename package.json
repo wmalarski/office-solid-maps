@@ -9,7 +9,8 @@
     "@fluentui/web-components": "^2.6.1",
     "@tailwindcss/vite": "^4.1.16",
     "solid-js": "^1.9.9",
-    "tailwindcss": "^4.1.16"
+    "tailwindcss": "^4.1.16",
+    "valibot": "^1.1.0"
   },
   "devDependencies": {
     "@types/office-js": "^1.0.551",

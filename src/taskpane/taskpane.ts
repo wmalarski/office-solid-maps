@@ -10,8 +10,11 @@ import "./taskpane.css";
 
 provideFluentDesignSystem().register(fluentButton(), fluentCard());
 
-const root = document.getElementById("root");
-
-if (root) {
-  render(App, root);
-}
+Office.onReady((info) => {
+  if (info.host === Office.HostType.Excel) {
+    const root = document.getElementById("root");
+    if (root) {
+      render(App, root);
+    }
+  }
+});
