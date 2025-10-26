@@ -22,7 +22,6 @@
     "eslint-plugin-office-addins": "^4.0.3",
     "knip": "^5.66.3",
     "office-addin-cli": "^2.0.3",
-    "office-addin-debugging": "^6.0.3",
     "office-addin-dev-certs": "^2.0.3",
     "office-addin-lint": "^3.0.3",
     "office-addin-manifest": "^2.0.3",
@@ -30,7 +29,6 @@
     "sonda": "^0.9.0",
     "typescript": "^5.9.3",
     "vite": "npm:rolldown-vite@7.1.19",
-    "vite-plugin-singlefile": "^2.3.0",
     "vite-plugin-solid": "^2.11.10",
     "vite-tsconfig-paths": "^5.1.4"
   },

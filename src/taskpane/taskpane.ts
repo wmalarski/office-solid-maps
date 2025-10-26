@@ -1,11 +1,12 @@
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
- * See LICENSE in the project root for license information.
- */
+/* @refresh reload */
+import { render } from "solid-js/web";
+import { App } from "./app";
 
-/* global console, document, Excel, Office */
+const root = document.getElementById("root");
 
-console.log("HERE");
+if (root) {
+  render(App, root);
+}
 
 Office.onReady((info) => {
   if (info.host === Office.HostType.Excel) {
