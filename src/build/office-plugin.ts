@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import type { Plugin, ResolvedConfig } from "vite";
 import { loadEnv } from "vite";
 
@@ -16,8 +16,6 @@ export const officeManifest = (options?: Options): Plugin => {
   let env: Record<string, string>;
 
   return {
-    name: "office-addin:manifest",
-
     configResolved(resolvedConfig: ResolvedConfig) {
       viteConfig = resolvedConfig;
       env = loadEnv(viteConfig.mode, process.cwd(), "ADDIN");
@@ -31,19 +29,21 @@ export const officeManifest = (options?: Options): Plugin => {
         return;
       }
 
-      const devUrl = options?.devUrl || env["ADDIN_DEV_URL"];
-      const prodUrl = options?.prodUrl || env["ADDIN_PROD_URL"];
+      const devUrl = options?.devUrl || env.ADDIN_DEV_URL;
+      const prodUrl = options?.prodUrl || env.ADDIN_PROD_URL;
 
       let content = fs.readFileSync(manifestPath, "utf-8");
-      if (devUrl && devUrl != "") {
+      if (devUrl && devUrl !== "") {
         content = content.replace(new RegExp(devUrl, "g"), prodUrl);
       }
 
       this.emitFile({
-        type: "asset",
         fileName: path.basename(manifestPath),
         source: content,
+        type: "asset",
       });
     },
+    name: "office-addin:manifest",
   };
 };
+

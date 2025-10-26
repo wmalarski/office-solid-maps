@@ -21,10 +21,12 @@ export async function run() {
 }
 
 export const App = () => {
-    return <div>
-        <span class="bg-red-500">Hello from solid</span>
-        <fluent-card class="p-4">
+  return (
+    <div>
+      <span class="bg-blue-500">Hello from solid</span>
+      <fluent-card class="p-4">
         <fluent-button onClick={run}>Click</fluent-button>
-        </fluent-card>
+      </fluent-card>
     </div>
-}
+  );
+};

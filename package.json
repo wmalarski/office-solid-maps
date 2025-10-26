@@ -1,20 +1,15 @@
 {
-  "name": "office-addin-taskpane",
-  "version": "0.0.1",
-  "license": "MIT",
   "config": {
     "app_to_debug": "excel",
     "app_type_to_debug": "desktop",
     "dev_server_port": 3000
   },
-  "scripts": {
-    "build": "tsc && vite build",
-    "dev": "vite --port 3000",
-    "lint": "office-addin-lint check",
-    "lint:fix": "office-addin-lint fix",
-    "prettier": "office-addin-lint prettier",
-    "validate": "office-addin-manifest validate dist/manifest.xml",
-    "preview": "vite preview"
+  "dependencies": {
+    "@biomejs/biome": "2.3.0",
+    "@fluentui/web-components": "^2.6.1",
+    "@tailwindcss/vite": "^4.1.16",
+    "solid-js": "^1.9.9",
+    "tailwindcss": "^4.1.16"
   },
   "devDependencies": {
     "@types/office-js": "^1.0.551",
@@ -32,14 +27,22 @@
     "vite-plugin-solid": "^2.11.10",
     "vite-tsconfig-paths": "^5.1.4"
   },
-  "prettier": "office-addin-prettier-config",
+  "license": "MIT",
+  "name": "office-addin-taskpane",
   "overrides": {
     "vite": "npm:rolldown-vite@7.1.19"
   },
-  "dependencies": {
-    "@fluentui/web-components": "^2.6.1",
-    "@tailwindcss/vite": "^4.1.16",
-    "solid-js": "^1.9.9",
-    "tailwindcss": "^4.1.16"
-  }
+  "prettier": "office-addin-prettier-config",
+  "scripts": {
+    "biome": "biome check .",
+    "biome:fix": "biome check . --write",
+    "build": "tsc && vite build",
+    "dev": "vite --port 3000",
+    "lint": "office-addin-lint check",
+    "lint:fix": "office-addin-lint fix",
+    "prettier": "office-addin-lint prettier",
+    "preview": "vite preview",
+    "validate": "office-addin-manifest validate dist/manifest.xml"
+  },
+  "version": "0.0.1"
 }

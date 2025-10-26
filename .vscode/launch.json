@@ -1,26 +1,26 @@
 {
-  "version": "0.2.0",
   "configurations": [
     {
       "name": "Excel Desktop (Edge Chromium)",
-      "type": "msedge",
-      "request": "attach",
       "port": 9229,
-      "timeout": 600000,
-      "webRoot": "${workspaceRoot}",
+      "postDebugTask": "Stop Debug",
       "preLaunchTask": "Debug: Excel Desktop",
-      "postDebugTask": "Stop Debug"
+      "request": "attach",
+      "timeout": 600000,
+      "type": "msedge",
+      "webRoot": "${workspaceRoot}"
     },
     {
       "name": "Excel Desktop (Edge Legacy)",
-      "type": "office-addin",
-      "request": "attach",
-      "url": "https://localhost:3000/taskpane.html?_host_Info=Excel$Win32$16.01$en-US$$$$0",
       "port": 9222,
-      "timeout": 600000,
-      "webRoot": "${workspaceRoot}",
+      "postDebugTask": "Stop Debug",
       "preLaunchTask": "Debug: Excel Desktop",
-      "postDebugTask": "Stop Debug"
+      "request": "attach",
+      "timeout": 600000,
+      "type": "office-addin",
+      "url": "https://localhost:3000/taskpane.html?_host_Info=Excel$Win32$16.01$en-US$$$$0",
+      "webRoot": "${workspaceRoot}"
     }
-  ]
+  ],
+  "version": "0.2.0"
 }

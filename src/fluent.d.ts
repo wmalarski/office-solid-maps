@@ -4,7 +4,8 @@ import type { ComponentProps } from "solid-js";
 declare module "solid-js" {
   namespace JSX {
     interface IntrinsicElements {
-      "fluent-button": ComponentProps<"button"> & Partial<Pick<Button, "appearance">>;
+      "fluent-button": ComponentProps<"button"> &
+        Partial<Pick<Button, "appearance">>;
       "fluent-card": ComponentProps<"div"> &
         Partial<Pick<Card, "cardFillColor" | "neutralPaletteSource">>;
     }

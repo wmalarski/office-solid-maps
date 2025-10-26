@@ -1,160 +1,128 @@
 {
-  "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build (Development)",
-      "type": "npm",
-      "script": "build:dev",
       "group": {
-        "kind": "build",
-        "isDefault": true
+        "isDefault": true,
+        "kind": "build"
       },
+      "label": "Build (Development)",
       "presentation": {
         "clear": true,
         "panel": "shared",
         "showReuseMessage": false
-      }
+      },
+      "script": "build:dev",
+      "type": "npm"
     },
     {
-      "label": "Build (Production)",
-      "type": "npm",
-      "script": "build",
       "group": "build",
+      "label": "Build (Production)",
       "presentation": {
         "clear": true,
         "panel": "shared",
         "showReuseMessage": false
-      }
+      },
+      "script": "build",
+      "type": "npm"
     },
     {
+      "args": ["run", "start", "--", "desktop", "--app", "excel"],
+      "command": "npm",
       "label": "Debug: Excel Desktop",
-      "type": "shell",
-      "command": "npm",
-      "args": [
-        "run",
-        "start",
-        "--",
-        "desktop",
-        "--app",
-        "excel"
-      ],
       "presentation": {
         "clear": true,
         "panel": "dedicated"
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     },
     {
+      "args": ["run", "start", "--", "desktop", "--app", "outlook"],
+      "command": "npm",
       "label": "Debug: Outlook Desktop",
-      "type": "shell",
-      "command": "npm",
-      "args": [
-        "run",
-        "start",
-        "--",
-        "desktop",
-        "--app",
-        "outlook"
-      ],
       "presentation": {
         "clear": true,
         "panel": "dedicated"
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     },
     {
+      "args": ["run", "start", "--", "desktop", "--app", "powerpoint"],
+      "command": "npm",
       "label": "Debug: PowerPoint Desktop",
-      "type": "shell",
-      "command": "npm",
-      "args": [
-        "run",
-        "start",
-        "--",
-        "desktop",
-        "--app",
-        "powerpoint"
-      ],
       "presentation": {
         "clear": true,
         "panel": "dedicated"
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     },
     {
-      "label": "Debug: Word Desktop",
-      "type": "shell",
+      "args": ["run", "start", "--", "desktop", "--app", "word"],
       "command": "npm",
-      "args": [
-        "run",
-        "start",
-        "--",
-        "desktop",
-        "--app",
-        "word"
-      ],
+      "label": "Debug: Word Desktop",
       "presentation": {
         "clear": true,
         "panel": "dedicated"
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "type": "shell"
     },
     {
       "label": "Dev Server",
-      "type": "npm",
-      "script": "dev-server",
       "presentation": {
         "clear": true,
         "panel": "dedicated"
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "script": "dev-server",
+      "type": "npm"
     },
     {
       "label": "Install",
-      "type": "npm",
-      "script": "install",
       "presentation": {
         "clear": true,
         "panel": "shared",
         "showReuseMessage": false
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "script": "install",
+      "type": "npm"
     },
     {
       "label": "Lint: Check for problems",
-      "type": "npm",
+      "problemMatcher": ["$eslint-stylish"],
       "script": "lint",
-      "problemMatcher": [
-        "$eslint-stylish"
-      ]
+      "type": "npm"
     },
     {
       "label": "Lint: Fix all auto-fixable problems",
-      "type": "npm",
+      "problemMatcher": ["$eslint-stylish"],
       "script": "lint:fix",
-      "problemMatcher": [
-        "$eslint-stylish"
-      ]
+      "type": "npm"
     },
     {
       "label": "Stop Debug",
-      "type": "npm",
-      "script": "stop",
       "presentation": {
         "clear": true,
         "panel": "shared",
         "showReuseMessage": false
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "script": "stop",
+      "type": "npm"
     },
     {
       "label": "Watch",
-      "type": "npm",
-      "script": "watch",
       "presentation": {
         "clear": true,
         "panel": "dedicated"
       },
-      "problemMatcher": []
+      "problemMatcher": [],
+      "script": "watch",
+      "type": "npm"
     }
-  ]
+  ],
+  "version": "2.0.0"
 }
