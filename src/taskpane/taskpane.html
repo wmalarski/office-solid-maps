@@ -2,7 +2,7 @@
 <!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en" data-framework="typescript">
 
 <head>
     <meta charset="UTF-8" />
@@ -18,6 +18,8 @@
 
     <!-- Template styles -->
     <link href="taskpane.css" rel="stylesheet" type="text/css" />
+    <script type="module" src="/taskpane/taskpane.ts"></script>
+    <script type="module" src="/taskpane/index.tsx"></script>
 </head>
 
 <body class="ms-font-m ms-welcome ms-Fabric">
@@ -51,7 +53,7 @@
         <p><label id="item-subject"></label></p>
     </main>
 
-    <script type="module" src="./taskpane.tsx"></script>
+    
 </body>
 
 
