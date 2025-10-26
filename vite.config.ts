@@ -19,6 +19,7 @@ export default defineConfig(async ({ mode }) => ({
     Sonda({ enabled: true, open: false }),
     officeManifest({
       devUrl: "https://localhost:3000",
+      // prodUrl: "https://localhost:3000",
       prodUrl: "https://www.contoso.com", // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
     }),
   ],
@@ -32,6 +33,16 @@ export default defineConfig(async ({ mode }) => ({
     },
     outDir: "../dist",
     emptyOutDir: true,
+    sourcemap: true,
   },
-  server: mode !== "production" ? { https: await getHttpsOptions() } : {},
+  server:
+    mode !== "production"
+      ? {
+          https: await getHttpsOptions(),
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+          port: Number(process.env.npm_package_config_dev_server_port) || 3000,
+        }
+      : {},
 }));
