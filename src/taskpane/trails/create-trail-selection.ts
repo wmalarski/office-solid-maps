@@ -1,7 +1,7 @@
 import { createResource, createSignal } from "solid-js";
 import * as v from "valibot";
 import { getTrailId } from "~/integrations/map/get-trail-id";
-import { MT_WEBSITE_URL } from "../integrations/map/constants";
+import { MT_WEBSITE_URL } from "../../integrations/map/constants";
 
 export const createTrailSelection = () => {
   const [trail, setTrail] = createSignal<string>();

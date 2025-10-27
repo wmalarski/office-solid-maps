@@ -1,4 +1,4 @@
-import { Button, Card } from "@fluentui/web-components";
+import type { Button, Card } from "@fluentui/web-components";
 import type { ComponentProps } from "solid-js";
 
 declare module "solid-js" {
