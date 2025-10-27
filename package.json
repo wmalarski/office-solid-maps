@@ -5,7 +5,7 @@
     "dev_server_port": 3000
   },
   "dependencies": {
-    "@biomejs/biome": "2.3.0",
+    "@biomejs/biome": "2.3.1",
     "@fluentui/web-components": "^2.6.1",
     "@solid-primitives/i18n": "^2.2.1",
     "@tailwindcss/vite": "^4.1.16",
@@ -14,7 +14,7 @@
     "valibot": "^1.1.0"
   },
   "devDependencies": {
-    "@types/office-js": "^1.0.551",
+    "@types/office-js": "^1.0.552",
     "@types/office-runtime": "^1.0.35",
     "eslint-plugin-office-addins": "^4.0.3",
     "knip": "^5.66.3",
@@ -25,14 +25,14 @@
     "office-addin-prettier-config": "^2.0.1",
     "sonda": "^0.9.0",
     "typescript": "^5.9.3",
-    "vite": "npm:rolldown-vite@7.1.19",
+    "vite": "npm:rolldown-vite@7.1.20",
     "vite-plugin-solid": "^2.11.10",
     "vite-tsconfig-paths": "^5.1.4"
   },
   "license": "MIT",
   "name": "office-addin-taskpane",
   "overrides": {
-    "vite": "npm:rolldown-vite@7.1.19"
+    "vite": "npm:rolldown-vite@7.1.20"
   },
   "prettier": "office-addin-prettier-config",
   "scripts": {
