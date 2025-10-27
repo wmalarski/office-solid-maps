@@ -30,6 +30,9 @@ const enDict = {
     madeBy: "Made by wmalarski",
     title: "Office Solid Maps",
   },
+  map: {
+    credit: "Trasa: | mapa-turystyczna.pl",
+  },
 };
 
 export type Locale = "en";

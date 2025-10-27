@@ -1,4 +1,6 @@
+import { For } from "solid-js";
 import { createTrailSelection } from "./create-trail-selection";
+import { TrailWidget } from "./trail-widget";
 
 export async function run() {
   try {
@@ -30,6 +32,9 @@ export const TrailsPanel = () => {
       <fluent-card class="p-4">
         <fluent-button onClick={run}>Click</fluent-button>
       </fluent-card>
+      <For each={selectedTrails()}>
+        {(trailId) => <TrailWidget trailId={trailId} />}
+      </For>
       <pre>{JSON.stringify(selectedTrails(), null, 2)}</pre>
     </div>
   );
