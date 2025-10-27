@@ -23,14 +23,14 @@ export async function run() {
 }
 
 export const TrailsPanel = () => {
-  const selectedTrail = createTrailSelection();
+  const selectedTrails = createTrailSelection();
 
   return (
     <div>
       <fluent-card class="p-4">
         <fluent-button onClick={run}>Click</fluent-button>
       </fluent-card>
-      <pre>{JSON.stringify(selectedTrail(), null, 2)}</pre>
+      <pre>{JSON.stringify(selectedTrails(), null, 2)}</pre>
     </div>
   );
 };

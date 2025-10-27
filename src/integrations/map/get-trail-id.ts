@@ -2,7 +2,7 @@ import { MT_WEBSITE_URL } from "./constants";
 
 export const getTrailId = async (url: URL) => {
   const routeQuery = url.searchParams.get("q") as string;
-  
+
   const formData = new FormData();
 
   formData.set("display_label", "true");
@@ -15,7 +15,11 @@ export const getTrailId = async (url: URL) => {
     method: "post",
   });
 
+  console.log("[response]", response.status, response.statusText);
+
   const text = await response.text();
+
+  console.log("[response]", text);
 
   const matches = text.match(/action=(.*)\.html/g);
   const trailId = matches?.[0].split(/(\/|\.)/).at(-3);

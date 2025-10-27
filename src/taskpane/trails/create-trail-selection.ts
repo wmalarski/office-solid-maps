@@ -4,7 +4,7 @@ import { getTrailId } from "~/integrations/map/get-trail-id";
 import { MT_WEBSITE_URL } from "../../integrations/map/constants";
 
 export const createTrailSelection = () => {
-  const [trail, setTrail] = createSignal<string>();
+  const [trails, setTrails] = createSignal<string[]>();
 
   const onSelectionChanged = async (event: Excel.SelectionChangedEventArgs) => {
     console.log("[event]", event);
@@ -15,35 +15,16 @@ export const createTrailSelection = () => {
 
       await event.workbook.context.sync();
 
-      const value = range.valuesAsJson.at(0)?.at(0);
+      const trailIdPromises = range.valuesAsJson.flat().map(getCellTrailId);
+      const resolvedTrailIds = await Promise.all(trailIdPromises);
 
-      if (!value || value.type !== Excel.CellValueType.string) {
-        setTrail();
-        return;
-      }
+      const trailIds: string[] = [];
 
-      const parsed = await v.safeParseAsync(
-        v.pipe(v.string(), v.url(), v.startsWith(`${MT_WEBSITE_URL}/route`)),
-        value.basicValue,
-      );
+      resolvedTrailIds.forEach((trailId) => {
+        trailId && trailIds.push(trailId);
+      });
 
-      if (!parsed.success) {
-        setTrail();
-        return;
-      }
-
-      const url = new URL(parsed.output);
-
-      if (url.searchParams.has("q")) {
-        const trailId = await getTrailId(url);
-        console.log("[qValue]", { trailId, url });
-        setTrail(trailId);
-        return;
-      }
-
-      const lastPath = parsed.output.split("/").at(-1);
-
-      setTrail(lastPath);
+      setTrails(trailIds);
     } catch (error) {
       console.log("[error]", error);
     }
@@ -55,5 +36,30 @@ export const createTrailSelection = () => {
     });
   });
 
-  return trail;
+  return trails;
+};
+
+const getCellTrailId = async (cell: Excel.CellValue) => {
+  if (!cell || cell.type !== Excel.CellValueType.string) {
+    return null;
+  }
+
+  const parsed = await v.safeParseAsync(
+    v.pipe(v.string(), v.url(), v.startsWith(`${MT_WEBSITE_URL}/route`)),
+    cell.basicValue,
+  );
+
+  if (!parsed.success) {
+    return null;
+  }
+
+  const url = new URL(parsed.output);
+
+  if (url.searchParams.has("q")) {
+    const trailId = await getTrailId(url);
+    return trailId ?? null;
+  }
+
+  const lastPath = parsed.output.split("/").at(-1);
+  return lastPath ?? null;
 };
