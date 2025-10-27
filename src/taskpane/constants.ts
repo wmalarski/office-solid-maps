@@ -1,1 +1,0 @@
-export const MT_BASE_URL = 'https://mapa-turystyczna.pl/route'

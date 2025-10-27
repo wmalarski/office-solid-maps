@@ -1,9 +1,10 @@
 import { createResource, createSignal } from "solid-js";
 import * as v from "valibot";
-import { MT_BASE_URL } from "./constants";
+import { getTrailId } from "~/integrations/map/get-trail-id";
+import { MT_WEBSITE_URL } from "../integrations/map/constants";
 
 export const createTrailSelection = () => {
-    const [trail, setTrail] = createSignal<string>()
+  const [trail, setTrail] = createSignal<string>();
 
   const onSelectionChanged = async (event: Excel.SelectionChangedEventArgs) => {
     console.log("[event]", event);
@@ -22,7 +23,7 @@ export const createTrailSelection = () => {
       }
 
       const parsed = await v.safeParseAsync(
-        v.pipe(v.string(), v.url(), v.startsWith(MT_BASE_URL)),
+        v.pipe(v.string(), v.url(), v.startsWith(`${MT_WEBSITE_URL}/route`)),
         value.basicValue,
       );
 
@@ -33,11 +34,10 @@ export const createTrailSelection = () => {
 
       const url = new URL(parsed.output);
 
-      const qValue = url.searchParams.get("q");
-
-      if (qValue) {
-        console.log("[qValue]", { qValue, url });
-        setTrail();
+      if (url.searchParams.has("q")) {
+        const trailId = await getTrailId(url);
+        console.log("[qValue]", { trailId, url });
+        setTrail(trailId);
         return;
       }
 
